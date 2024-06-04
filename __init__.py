@@ -1,291 +1,298 @@
-from otree.api import *
 
+from otree.api import *
 c = cu
 
 doc = ''
-
-
 class C(BaseConstants):
-    NAME_IN_URL = 'Task1'
+    NAME_IN_URL = 'Game'
     PLAYERS_PER_GROUP = 5
-    NUM_ROUNDS = 200
-    TASKS = (
-        39, 23, 30, 33, 37, 35, 44, 22, 32, 42, 36, 40, 21, 25, 41, 45, 38, 29, 28, 24, 34, 20, 31, 27, 43, 26, 36, 24,
-        32,
-        29, 31, 37, 27, 22, 28, 41, 38, 23, 25, 43, 44, 42, 20, 33, 34, 35, 39, 21, 40, 26, 30, 45, 26, 29, 39, 41, 34,
-        43,
-        22, 37, 24, 27, 25, 36, 23, 38, 45, 40, 33, 35, 44, 32, 20, 30, 31, 42, 21, 28, 34, 42, 37, 22, 24, 39, 20, 30,
-        29,
-        26, 38, 36, 40, 25, 43, 41, 27, 45, 35, 33, 21, 44, 32, 31, 23, 28, 28, 31, 35, 20, 41, 33, 21, 24, 32, 29, 43,
-        26,
-        38, 36, 22, 23, 25, 30, 37, 27, 40, 45, 44, 34, 39, 42, 32, 25, 40, 39, 34, 36, 37, 35, 22, 26, 27, 24, 33, 38,
-        29,
-        41, 43, 21, 42, 45, 23, 30, 28, 44, 31, 20, 43, 27, 44, 23, 28, 38, 34, 39, 40, 36, 42, 33, 29, 25, 32, 35, 45,
-        20,
-        22, 30, 31, 37, 41, 24, 26, 21, 24, 38, 39, 32, 27, 30, 31, 45, 36, 44, 22, 25, 28, 20, 26, 42, 35, 43, 37, 21,
-        40,
-        29, 41, 34, 33, 23)
-    ANSWERS = (
-        'A', 'Y', 'V', 'D', 'K', 'L', 'P', 'E', 'C', 'J', 'H', 'F', 'B', 'Z', 'W', 'T', 'S', 'U', 'O', 'G', 'R', 'I',
-        'X',
-        'M', 'Q', 'N', 'H', 'G', 'C', 'U', 'X', 'K', 'M', 'E', 'O', 'W', 'S', 'Y', 'Z', 'Q', 'P', 'J', 'I', 'D', 'R',
-        'L',
-        'A', 'B', 'F', 'N', 'V', 'T', 'N', 'U', 'A', 'W', 'R', 'Q', 'E', 'K', 'G', 'M', 'Z', 'H', 'Y', 'S', 'T', 'F',
-        'D',
-        'L', 'P', 'C', 'I', 'V', 'X', 'J', 'B', 'O', 'R', 'J', 'K', 'E', 'G', 'A', 'I', 'V', 'U', 'N', 'S', 'H', 'F',
-        'Z',
-        'Q', 'W', 'M', 'T', 'L', 'D', 'B', 'P', 'C', 'X', 'Y', 'O', 'O', 'X', 'L', 'I', 'W', 'D', 'B', 'G', 'C', 'U',
-        'Q',
-        'N', 'S', 'H', 'E', 'Y', 'Z', 'V', 'K', 'M', 'F', 'T', 'P', 'R', 'A', 'J', 'C', 'Z', 'F', 'A', 'R', 'H', 'K',
-        'L',
-        'E', 'N', 'M', 'G', 'D', 'S', 'U', 'W', 'Q', 'B', 'J', 'T', 'Y', 'V', 'O', 'P', 'X', 'I', 'Q', 'M', 'P', 'Y',
-        'O',
-        'S', 'R', 'A', 'F', 'H', 'J', 'D', 'U', 'Z', 'C', 'L', 'T', 'I', 'E', 'V', 'X', 'K', 'W', 'G', 'N', 'B', 'G',
-        'S',
-        'A', 'C', 'M', 'V', 'X', 'T', 'H', 'P', 'E', 'Z', 'O', 'I', 'N', 'J', 'L', 'Q', 'K', 'B', 'F', 'U', 'W', 'R',
-        'D',
-        'Y')
-    M_ROLE = 'manager'
-    W1_ROLE = 'employee'
-    W2_ROLE = 'employee'
-    W3_ROLE = 'employee'
-    W4_ROLE = 'employee'
-
-
+    NUM_ROUNDS = 1
+    MANAGER_ROLE = 'manager'
+    WORKER1_ROLE = 'employee'
+    EXCHANGE_RATE = 100
+    DECODE_PAYOFF = 100
+    WORKER2_ROLE = 'employee'
+    WORKER3_ROLE = 'employee'
+    WORKER4_ROLE = 'employee'
 class Subsession(BaseSubsession):
     pass
-
-
-class Group(BaseGroup):
+def my_function(subsession: Subsession):
     pass
-
-
+class Group(BaseGroup):
+    task_2_manager_payoff = models.IntegerField()
+    task_2_employee_payoff = models.IntegerField()
 class Player(BasePlayer):
-    right_answers = models.IntegerField(initial=0)
+    consent = models.BooleanField(choices=[[True, 'I consent, begin the study.'], [False, 'I do not consent, I do not wish to take part in the study.']])
+    keep_same_role = models.BooleanField(choices=[[True, 'True'], [False, 'False']])
+    identity_will_be_disclosed = models.BooleanField(choices=[[True, 'True'], [False, 'False']])
+    how_many_output_points = models.IntegerField(choices=[[100, '100'], [200, '200'], [400, '400']])
+    can_end_the_task_earlier = models.BooleanField(choices=[[True, 'True'], [False, 'False']])
+    manager_informed_about_the_output = models.BooleanField(choices=[[True, 'True'], [False, 'False']])
+    manager_informed_about_actual_costs = models.BooleanField(choices=[[True, 'True'], [False, 'False']])
+    the_firm_will_always_pay = models.BooleanField(choices=[[True, 'True'], [False, 'False']])
+    requested_funds_are_higher = models.BooleanField(choices=[[True, 'True'], [False, 'False']])
     answer = models.StringField(blank=True)
-    end_task = models.StringField(blank=True, choices=[['1', 'End Task']])
-    practice_right_answers = models.IntegerField(initial=0)
-    my_page_timeout_seconds = 360
-    my_page_timeout_seconds = models.IntegerField(initial=360)
+    numbers_decoded_correctly = models.IntegerField(initial=0)
+    fin_cos_q1 = models.BooleanField(choices=[[True, 'True'], [False, 'False']])
+    fin_cos_q2 = models.BooleanField(choices=[[True, 'True'], [False, 'False']])
+    button = models.BooleanField(choices=[[True, 'True'], [False, 'False']])
 
-class Manager_text(Page):
+class Start_Consent_Form(Page):
     form_model = 'player'
-    timeout_seconds = 10
-
+    form_fields = ['consent']
     @staticmethod
-    def is_displayed(player: Player):
+    def vars_for_template(player: Player):
+        session = player.session
         participant = player.participant
-        return (participant.role == 'manager') and player.round_number == 1
-
-    @staticmethod
-    def get_timeout_seconds(player):
-        return player.my_page_timeout_seconds
-
-
-class Start_emp(Page):
-    form_model = 'player'
-
-    @staticmethod
-    def is_displayed(player: Player):
-        participant = player.participant
-        return (player.round_number == 1 or player.round_number == 5 + 1) and participant.role == 'employee'
-
+        session.condition = ((participant.id_in_session -1) // 5 ) + 1
+        con = session.condition
+        return dict(con = con)
     @staticmethod
     def before_next_page(player: Player, timeout_happened):
+        session = player.session
+        group = player.group
         participant = player.participant
-        import time
+        import math
+        
+        con = ((participant.id_in_session -1) // 5 ) + 1
+        session.condition = math.trunc(con)
+        #session.condition = 1 # variable for condition for the group
+        
+        session.EXCHANGE_RATE = 100 # variable for points\money exchange 
+        
+        session.DECODE_PAYOFF = 100 # variable for decoding payoff
+        
+        participant.expiry = 0 # setting expiry time to 0 here, so Task 1 works for manager
+        
+        if player.id_in_group % 5 == 1:
+            participant.role = 'manager'
+        else:
+            participant.role = 'employee'
+        
+        participant.TASK_1_PAYOFF = 0 # setting payoff for taks 1, so it works for manager
+    @staticmethod
+    def error_message(player: Player, values):
+        if values['consent'] == False:
+            return 'This answer option will not allow you to continue the experiment. Please report this to the experiment administrator.'
 
-        # remember to add 'expiry' to PARTICIPANT_FIELDS.
-        if player.round_number == 1:
-            participant.expiry = time.time() + 40
 
-        if player.round_number == 6:
-            participant.expiry = time.time() + 60 * 5
-            form_model = 'player'
+class General_information(Page):
+    form_model = 'player'
 
 
-class Practice_emp(Page):
+class new_page(Page):
+    form_model = 'player'
+
+
+class The_Firm_and_the_Roles(Page):
+    form_model = 'player'
+    form_fields = ['keep_same_role', 'identity_will_be_disclosed']
+    @staticmethod
+    def error_message(player: Player, values):
+        solutions = dict(
+                keep_same_role=True,
+                identity_will_be_disclosed=False
+            )
+        
+        error_messages = dict()
+        
+        for field_name in solutions:
+             if values[field_name] != solutions[field_name]:
+                error_messages[field_name] = 'Wrong answer'
+        
+        return error_messages
+class Your_Role(Page):
+    form_model = 'player'
+class Task1_cond5(Page):
+    form_model = 'player'
+    @staticmethod
+    def is_displayed(player: Player):
+        session = player.session
+        return (session.condition == 5)
+
+class Task1_explanation_employee_p1(Page):
     form_model = 'player'
     form_fields = ['answer']
-
     @staticmethod
     def is_displayed(player: Player):
+        session = player.session
         participant = player.participant
-        import time
-        return (participant.expiry - time.time() > 3) and player.round_number <= 5
-
-    @staticmethod
-    def vars_for_template(player: Player):
-        res = 0
-
-        for i in player.in_previous_rounds():
-            res += i.practice_right_answers
-
-        task = C.TASKS[player.round_number]
-        ra = C.ANSWERS[player.round_number]
-
-        return dict(task=task, res=res, ra=ra)
-
+        return session.condition != 5 and participant.role == 'employee'
     @staticmethod
     def before_next_page(player: Player, timeout_happened):
-        # import time
-
-        if C.ANSWERS[player.round_number] == player.answer:
-            player.practice_right_answers = + 1
-
-    @staticmethod
-    def get_timeout_seconds(player: Player):
-        participant = player.participant
-        import time
-        return participant.expiry - time.time()
-
-
-class Task_1_emp(Page):
+        player.answer = ''
+class Task1_explanation_employee_p2(Page):
     form_model = 'player'
-    form_fields = ['answer', 'end_task']
-
+    form_fields = ['how_many_output_points', 'can_end_the_task_earlier', 'manager_informed_about_the_output']
     @staticmethod
     def is_displayed(player: Player):
+        session = player.session
         participant = player.participant
-        import time
-
-        return (
-                participant.expiry - time.time() > 3) and 5 < player.round_number < 200
-
-    @staticmethod
-    def vars_for_template(player: Player):
-        res = 0
-
-        for i in player.in_previous_rounds():
-            res += i.right_answers
-
-        task = C.TASKS[player.round_number]
-        ra = C.ANSWERS[player.round_number]
-
-        return dict(task=task, res=res, ra=ra)
-
+        return session.condition != 5 and participant.role == 'employee'
     @staticmethod
     def before_next_page(player: Player, timeout_happened):
-        participant = player.participant
-        # import time
-        if player.end_task == '1':
-            participant.expiry = 0
-
-        if C.ANSWERS[player.round_number] == player.answer:
-            player.right_answers = +1
-
+        player.answer = ''
     @staticmethod
-    def get_timeout_seconds(player: Player):
-        participant = player.participant
-        import time
-        return participant.expiry - time.time()
+    def error_message(player: Player, values):
+        solutions = dict(
+                how_many_output_points = 100,
+                can_end_the_task_earlier = True,
+                manager_informed_about_the_output = True,
 
+            )
+        
+        error_messages = dict()
+        
+        for field_name in solutions:
+             if values[field_name] != solutions[field_name]:
+                error_messages[field_name] = 'Wrong answer'
+        
+        return error_messages
 
-class Wait_page(WaitPage):
-    title_text = 'Waiting for all players to finish task 1'
-
-    @staticmethod
-    def is_displayed(player: Player):
-        session = player.session
-        participant = player.participant
-        return session.condition != 5 and participant.expiry < 3 and player.round_number == 200 and participant.role == 'manager'
-
-
-class Summary_manager(Page):
+class Task1_example_manager_p1(Page):
     form_model = 'player'
-
+    form_fields = ['answer']
     @staticmethod
     def is_displayed(player: Player):
         session = player.session
         participant = player.participant
-        return session.condition != 5 and player.round_number == 200 and participant.role == 'manager'
-
-    @staticmethod
-    def vars_for_template(player: Player):
-        session = player.session
-        group = player.group
-        res = []
-
-        for i in range(player.id_in_group + 1, player.id_in_group + 5):
-            t = 0
-            for j in group.get_player_by_id(i).in_previous_rounds():
-                t += j.right_answers
-            res.append(t)
-
-        emp_payoff_1 = res[0] * session.DECODE_PAYOFF
-        emp_payoff_2 = res[1] * session.DECODE_PAYOFF
-        emp_payoff_3 = res[2] * session.DECODE_PAYOFF
-        emp_payoff_4 = res[3] * session.DECODE_PAYOFF
-
-        m = emp_payoff_1 * 0.1
-
-        return dict(m=m, emp_payoff_1=emp_payoff_1, emp_payoff_2=emp_payoff_2, emp_payoff_3=emp_payoff_3,
-                    emp_payoff_4=emp_payoff_4)
-
+        return session.condition != 5 and participant.role == 'manager'
     @staticmethod
     def before_next_page(player: Player, timeout_happened):
-        session = player.session
-        group = player.group
-        participant = player.participant
-        personal_payoff = 0
-        for j in group.get_player_by_id(player.id_in_group).in_previous_rounds():
-            personal_payoff += j.right_answers
-
-        if participant.role == "manager":
-            for j in group.get_player_by_id(player.id_in_group + 1).in_previous_rounds():
-                personal_payoff += j.right_answers
-            participant.TASK_1_PAYOFF = personal_payoff * session.DECODE_PAYOFF
-
-
-class Task1_complete(Page):
+        player.answer = ''
+class Task1_example_manager_p2(Page):
     form_model = 'player'
-
+    form_fields = ['how_many_output_points', 'can_end_the_task_earlier', 'manager_informed_about_the_output']
     @staticmethod
     def is_displayed(player: Player):
         session = player.session
         participant = player.participant
-        return player.round_number == 200 and participant.role == 'employee'
-
-
-class Summary_emp(Page):
-    form_model = 'player'
-
-    @staticmethod
-    def is_displayed(player: Player):
-        session = player.session
-        participant = player.participant
-        return player.round_number == 200 and participant.role == 'employee'
-
-    @staticmethod
-    def vars_for_template(player: Player):
-        session = player.session
-        group = player.group
-        personal_payoff = 0
-        for j in group.get_player_by_id(player.id_in_group).in_previous_rounds():
-            personal_payoff += j.right_answers
-
-        personal_payoff *= session.DECODE_PAYOFF
-
-        charity = round(personal_payoff * 0.2)
-        bonus = round(personal_payoff * 0.1)
-
-        return dict(personal_payoff=personal_payoff, charity=charity, bonus=bonus)
-
+        return session.condition != 5 and participant.role == 'manager'
     @staticmethod
     def before_next_page(player: Player, timeout_happened):
+        player.answer = ''
+    @staticmethod
+    def error_message(player: Player, values):
+        solutions = dict(
+                how_many_output_points = 100,
+                can_end_the_task_earlier = True,
+                manager_informed_about_the_output = True,
+
+            )
+        
+        error_messages = dict()
+        
+        for field_name in solutions:
+             if values[field_name] != solutions[field_name]:
+                error_messages[field_name] = 'Wrong answer'
+        
+        return error_messages
+class The_Financial_Consequences_of_Task_1_p1(Page):
+    form_model = 'player'
+    @staticmethod
+    def is_displayed(player: Player):
         session = player.session
-        group = player.group
+        return session.condition != 5
+class WIP_The_Financial_Consequences_of_Task_1_p2(Page):
+    form_model = 'player'
+    form_fields = ['fin_cos_q1', 'fin_cos_q2',]
+    @staticmethod
+    def is_displayed(player: Player):
+        session = player.session
+        return session.condition != 5
+    @staticmethod
+    def error_message(player: Player, values):
+        session = player.session
+        if session.condition == 1 or session.condition == 3:
+            solutions = dict(fin_cos_q1=True, fin_cos_q2=False)
+        if session.condition == 2 or session.condition == 4:
+            solutions = dict(fin_cos_q1=False, fin_cos_q2=True)
+
+        
+        error_messages = dict()
+        
+        for field_name in solutions:
+             if values[field_name] != solutions[field_name]:
+                error_messages[field_name] = 'Wrong answer'
+        
+        return error_messages
+class Task_2_explanation_employee_p1(Page):
+    form_model = 'player'
+    @staticmethod
+    def is_displayed(player: Player):
         participant = player.participant
-        personal_payoff = 0
-        for j in group.get_player_by_id(player.id_in_group).in_previous_rounds():
-            personal_payoff += j.right_answers
+        return participant.role == 'employee'
+class Task_2_explanation_employee_p2(Page):
+    form_model = 'player'
+    form_fields = ['manager_informed_about_actual_costs', 'the_firm_will_always_pay', 'requested_funds_are_higher']
+    @staticmethod
+    def is_displayed(player: Player):
+        participant = player.participant
+        return participant.role== 'employee'
+    @staticmethod
+    def error_message(player: Player, values):
+        solutions = dict(
+                requested_funds_are_higher = True,
+                the_firm_will_always_pay = True,
+                manager_informed_about_actual_costs = False,
+        
+            )
+        
+        error_messages = dict()
+        
+        for field_name in solutions:
+             if values[field_name] != solutions[field_name]:
+                error_messages[field_name] = 'Wrong answer'
+        
+        return error_messages
 
-        if participant.role == "employee":
-            participant.TASK_1_PAYOFF = personal_payoff * session.DECODE_PAYOFF
-            if session.condition == 2 or session.condition == 4:
-                participant.TASK_1_PAYOFF = participant.TASK_1_PAYOFF * 1
-            if session.condition == 1 or session.condition == 2:
-                participant.CHARITY_PAYOFF = participant.TASK_1_PAYOFF * 0.2
+
+class Task_2_explanation_manager_p1(Page):
+    form_model = 'player'
+    @staticmethod
+    def is_displayed(player: Player):
+        participant = player.participant
+        return participant.role == 'manager'
+class Task_2_explanation_manager_p2(Page):
+    form_model = 'player'
+    form_fields = ['requested_funds_are_higher', 'the_firm_will_always_pay', 'manager_informed_about_actual_costs']
+    @staticmethod
+    def is_displayed(player: Player):
+        participant = player.participant
+        return participant.role == 'manager'
+    @staticmethod
+    def error_message(player: Player, values):
+        solutions = dict(
+                requested_funds_are_higher = True,
+                the_firm_will_always_pay = True,
+                manager_informed_about_actual_costs = False,
+        
+            )
+        
+        error_messages = dict()
+        
+        for field_name in solutions:
+             if values[field_name] != solutions[field_name]:
+                error_messages[field_name] = 'Wrong answer'
+        
+        return error_messages
 
 
-page_sequence = [Start_emp, Practice_emp, Manager_text, Task_1_emp, Wait_page, Summary_manager, Task1_complete, Summary_emp ]
+class Payoffs(Page):
+    form_model = 'player'
+
+
+
+class Start_practice_round(Page):
+    form_model = 'player'
+    @staticmethod
+    def is_displayed(player: Player):
+        session = player.session
+        return session.condition != 5
+class FALSE_Task_1_manager(Page):
+    form_model = 'player'
+    @staticmethod
+    def is_displayed(player: Player):
+        participant = player.participant
+        return participant.role == 'manager' and False
+page_sequence = [Start_Consent_Form, General_information, The_Firm_and_the_Roles, Your_Role, Task1_cond5, Task1_explanation_employee_p1, Task1_explanation_employee_p2, Task1_example_manager_p1, Task1_example_manager_p2, The_Financial_Consequences_of_Task_1_p1, WIP_The_Financial_Consequences_of_Task_1_p2, Task_2_explanation_employee_p1, Task_2_explanation_employee_p2, Task_2_explanation_manager_p1, Task_2_explanation_manager_p2, Payoffs, Start_practice_round]

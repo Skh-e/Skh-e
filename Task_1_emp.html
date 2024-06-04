@@ -1,0 +1,84 @@
+{{ extends 'global/Page.html' }}
+{{ block title }}Task 1{{ endblock }}
+
+{{ block content }}
+
+
+{{if session.condition == 1 or session.condition == 2 or session.condition == 3 or session.condition == 4 }}
+
+<p>Table for decoding:</p> 
+<img src= "https://imgur.com/1bilT8e.jpg" width="800px" />
+
+<p>The number of correct decodes so far: <b>{{res}}</b> </p>
+
+<P>Decode this number: {{task}}</p>
+{{ formfield 'answer' label="Enter the letter here. The system is case-sensitive. Turn on your Caps Lock." }}
+
+
+
+{{ formfield 'end_task' label="If you want to instantly finish the decoding task, then select 'END TASK' and then press 'Next' once."}}
+
+{{endif}}
+
+
+{#(Condition 5) #}
+{{if session.condition == 5}}
+
+<p><u>Feathers of Wonder: A Fascinating Exploration into the Avian World</u></p>
+
+<p>In the vast symphony of nature, birds take center stage with their diverse plumage, enchanting melodies, and remarkable behaviors. These winged wonders, with over 10,000 species soaring across the globe, captivate our imaginations and play crucial roles in ecosystems worldwide.</p>
+<p>Birds, descendants of dinosaurs, exhibit an unparalleled diversity in size, shape, and color. From the majestic wingspan of the albatross to the vibrant hues of a tropical hummingbird, their adaptations are a testament to the marvels of evolution. Feathers, the defining feature of birds, serve not only as instruments of flight but also as canvases for dazzling displays and intricate courtship rituals.</p>
+<p>Avian intelligence is a subject of fascination. Some birds, like crows and parrots, showcase problem-solving abilities akin to primates. Tool use, complex communication, and even the recognition of themselves in mirrors highlight the cognitive prowess of these feathered beings. The intricate architecture of bird nests, crafted with precision, showcases their resourcefulness and engineering skills.</p>
+<p>Migration is another awe-inspiring aspect of avian life. Birds undertake incredible journeys across continents, navigating by celestial cues and Earth's magnetic field. The Arctic Tern, for instance, travels from pole to pole annually, covering a distance equivalent to flying to the moon and back over its lifetime. These migratory patterns play a crucial role in maintaining ecological balance and biodiversity.</p>
+<p>Birds are not mere inhabitants of our surroundings; they are guardians of biodiversity, architects of song, and ambassadors of the skies. As we marvel at their intricate plumage and listen to their enchanting melodies, let us also embrace the responsibility to protect and celebrate these fascinating creatures that grace our planet with their wings of wonder.</p>
+
+<p>Birds, with their diverse colors, fascinating behaviors, and distinct characteristics, captivate the hearts of birdwatchers and nature enthusiasts worldwide. From the smallest hummingbirds to the majestic birds of prey, the avian world offers a rich tapestry of species. Here's a glimpse into the varied types of birds that grace our skies:</p>
+
+<p>Hummingbirds:
+    These miniature wonders are known for their iridescent plumage and the ability to hover mid-air. With rapid wing beats and a keen sense of color, hummingbirds are expert nectar feeders, playing a crucial role in pollination.</p>
+
+<p>Owls:
+Renowned for their nocturnal habits and exceptional night vision, owls are silent hunters of the night. Their distinctive hooting calls and ability to rotate their heads nearly 360 degrees contribute to their mysterious allure.</p>
+
+<p>Peafowl:
+    The resplendent peafowl, including the peacock, is celebrated for its vibrant plumage and elaborate courtship displays. These ground-dwelling birds are native to South Asia and are known for their striking beauty.</p>
+
+<p>Birds of Prey:
+    Eagles, hawks, falcons, and vultures belong to the impressive category of birds of prey. With keen eyesight, powerful talons, and strong beaks, these birds are adept hunters and occupy the upper echelons of the avian food chain.</p>
+
+<p>Songbirds:
+    Passerines, or songbirds, are a diverse group known for their melodious calls and complex songs. From the cheerful chirping of sparrows to the intricate tunes of nightingales, songbirds bring music to the natural world.</p>
+
+<p>Waterfowl:
+    Ducks, geese, and swans are prominent members of the waterfowl family. Adapted to aquatic environments, these birds are often characterized by webbed feet and waterproof plumage. Many migrate long distances during the changing seasons.</p>
+
+<p>Parrots:
+    Known for their vibrant plumage and exceptional mimicry abilities, parrots are social and intelligent birds. They are often kept as pets for their playful nature and the ability to imitate human speech.</p>
+
+<p>Penguins:
+    Penguins are iconic birds of the Southern Hemisphere, known for their tuxedo-like black and white plumage. Highly adapted to aquatic life, penguins are exceptional swimmers, and many species thrive in cold, sub-Antarctic regions.</p>
+
+<p>Toucans:
+    With their oversized, brightly colored bills, toucans are distinctive inhabitants of tropical forests. These frugivorous birds play a crucial role in seed dispersal and are known for their unique appearance and vibrant hues.</p>
+
+<p>Woodpeckers:
+    Woodpeckers are adapted for a specialized lifestyle of foraging for insects in tree bark. Equipped with strong beaks and a unique ability to drum on wood, these birds are essential contributors to forest ecosystems.</p>
+
+<p>Crows and Ravens:
+    Known for their intelligence and problem-solving skills, crows and ravens are highly adaptable birds. Their glossy black plumage and clever behaviors have earned them a place in folklore and mythology.</p>
+
+<p>Albatross:
+    Albatrosses are majestic seabirds with impressive wingspans, enabling them to cover vast distances over the open ocean. These long-lived birds are known for their graceful gliding and are symbols of endurance.</p>
+
+<p>The world of birds is vast and diverse, with each species contributing to the intricate web of ecosystems. Whether soaring through the skies, exploring dense forests, or gracefully swimming in oceans, birds captivate us with their beauty, behavior, and the important roles they play in the natural world.</p>
+
+{{ formfield 'end_task' label="If you want to instantly finish this task, then select 'END TASK' and then press 'Next' once."}}
+
+
+{{endif}}
+
+{{ next_button}}
+
+
+
+{{ endblock }}

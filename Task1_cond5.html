@@ -1,0 +1,15 @@
+{{ extends 'global/Page.html' }}
+{{ block title }}Task 1{{ endblock }}
+
+{{ block content }}
+{{if participant.role == 'employee'}}
+You are asked to read a text for about 5 minutes.
+{{endif}}
+{{if participant.role == 'manager'}}
+You are asked to read a text for about 6 minutes.
+{{endif}}
+{{ formfields }}
+
+{{ next_button }}
+
+{{ endblock }}

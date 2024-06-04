@@ -1,0 +1,22 @@
+{{ extends 'global/Page.html' }}
+{{ block title }}Demographic information{{ endblock }}
+
+{{ block content }}
+
+{{ formfield 'phase_of_studies' label='In which phase of your studies are you currently? (Please choose only one.) ' }}
+
+{{formfield 'phase_of_studies_other' label='In case you answered “Other” to the question above, could you please specify?'}}
+
+{{formfield 'major' label='What is your major? '}}
+
+{{formfield 'participated' label='Have you participated in an experiment prior to this one?'}}
+
+{{formfield 'work_experience' label='How many months of professional work experience (part-time and full-time employment) do you have in total?'}}
+
+{{formfield 'age' label='How old are you?'}}
+
+{{formfield 'gender' label='What is your gender?'}}
+
+{{ next_button }}
+
+{{ endblock }}

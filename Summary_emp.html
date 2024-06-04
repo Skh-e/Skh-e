@@ -1,0 +1,40 @@
+{{ extends 'global/Page.html' }}
+{{ block title }}{{ endblock }}
+
+{{ block content }}
+
+{{if participant.role == 'employee'}}
+
+
+
+    {#(Condition 1 & 2)#} 
+    {{if session.condition == 1 or session.condition == 2}}
+<p>You have generated {{personal_payoff}} output points for the firm.</p>
+<p>You have donated {{charity}} points to charity. </p>
+    {{endif}}
+
+    {#(Conditions 4)#}
+    {{if session.condition == 4}}
+<p>You have generated {{personal_payoff}} output points for the firm.</p>
+<P>You have earned {{bonus}} points for yourself.</P>
+    {{endif}}
+
+    {#(Conditions 2)#}
+    {{if session.condition == 2}}
+<P>You have earned {{bonus}} points for yourself.</P>
+    {{endif}}
+
+    {#(Conditions 3)#}
+    {{if session.condition == 3}}
+<p>You have generated {{personal_payoff}} output points for the firm.</p>
+
+    {{endif}}
+
+<p>Please now proceed to task 2.</p>
+{{endif}}
+
+{{ formfields }}
+
+{{ next_button }}
+
+{{ endblock }}

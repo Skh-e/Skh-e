@@ -1,0 +1,23 @@
+{{ extends 'global/Page.html' }}
+{{ block title }}The Firm and the Roles{{ endblock }}
+
+{{ block content }}
+
+<p>Each participant in today's study will be part of a firm.</b> Each firm consists of a manager and an employee. The <i>employee</i> reports to the <i>manager</i> of the firm. You and another participant will be assigned to play these two roles. The assignment to the firms and to the roles will be random. Roles will remain the same for the entire study.
+    Participants will never know the identity of each other.</p>
+    In this study, more individuals will assume the role of employee than the role of manager. As such, managers will be matched with multiple employees.
+    Only the information on one randomly selected employee will be shown to the manager, and only this employee’s decisions will determine his/her manager’s compensation.
+    However, employees' compensation will always be calculated as described later, regardless of whether an employee was selected to determine your manager’ compensation.
+    That means, whether an employee is selected or not has no effect on his or her compensation. Therefore, employees shall proceed with the study and make decisions as if they were selected to determine their manager’s compensation.
+<br><br>
+
+<p>Are the following statements true or false?</p>
+{{ formfield 'keep_same_role' label="1. I keep the same role throughout the study and stay in the same firm with the same other participant." }}
+
+{{ formfield 'identity_will_be_disclosed' label="2. My identity will be disclosed to the other participants at the end of the study." }}
+
+{{formfield_errors 'keep_same_role'}}
+{{formfield_errors 'identity_will_be_disclosed'}}
+{{ next_button }}
+
+{{ endblock }}

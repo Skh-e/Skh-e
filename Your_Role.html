@@ -1,0 +1,24 @@
+{{ extends 'global/Page.html' }}
+{{ block title }}Your role{{ endblock }}
+
+{{ block content }}
+
+<p>You have been randomly assigned to the role of <u>{{ participant.role }} </u>in today's study. You will keep this role throughout the study. Another participant has been assigned to the role of {{if participant.role == 'employee'}} manager {{else}} employee {{ endif }}
+ and will keep this role throughout the study.
+
+<p>For working as the {{ participant.role }}, you will earn 400 points from the firm. The {{if participant.role == 'employee'}} manager {{else}} employee {{ endif }} will also earn 400 points. </p>
+
+{{if participant.role == 'employee'}} 
+    <p>You will be asked to perform two tasks. Following, you will receive instructions about each task. While you perform the tasks, the manager will be asked to wait and read some texts. At the end of each task, the manager will receive some information from you. </p>
+
+{{else}}
+    <p>The employee will be asked to perform two tasks. Following, you will receive instructions about each task. While the employee performs the tasks, you will be asked to wait and read some texts. At the end of each task, you will receive some information from the employee. </p>
+{{ endif }}
+
+
+
+
+{{ formfields }}
+{{ next_button }}
+
+{{ endblock }}

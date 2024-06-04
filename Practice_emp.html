@@ -1,0 +1,30 @@
+{{ extends 'global/Page.html' }}
+{{ block title }}Task 1{{ endblock }}
+
+{{ block content }}
+
+{{if session.condition == 1 or session.condition == 2 or session.condition == 3 or session.condition == 4 }}
+<p><b>Practice round</b></p>
+<p>Table for decoding:</p> 
+<img src= "https://imgur.com/1bilT8e.jpg" width="800px" />
+
+<p>The number of correctly decoded words so far: <b>{{res}}</b> </p>
+
+<P>Decode this number: {{task}}</p>
+{{ formfield 'answer' label="Enter the letter here. The system is case-sensitive. Turn on your Caps Lock." }}
+
+<p> Once you enter the letter, click the "Next" button to submit it and continue. </p>
+
+{{ next_button}}
+
+{{endif}}
+
+{#(Condition 5) #}
+{{if session.condition == 5}}
+<p>You will be asked to read a text titled "Feathers of Wonder: A Fascinating Exploration into the Avian World". Here is the abstract:</p>
+
+<p>Birds stand out among other species for their remarkable diversity, unique adaptations, and significant ecological roles. With over 10,000 species spanning every corner of the globe, birds exhibit unparalleled versatility in their habitats, behaviors, and appearances. Unlike many other animals, birds have evolved the remarkable ability of flight, enabling them to explore diverse environments, from the highest mountain peaks to the depths of the ocean. This aerial prowess grants them access to resources inaccessible to land-bound creatures, shaping their behaviors, feeding habits, and social structures. Moreover, birds play crucial roles in ecosystems as pollinators, seed dispersers, predators, and prey, contributing to the balance and resilience of natural communities. Their intricate nesting behaviors, elaborate courtship displays, and complex vocalizations further highlight their intelligence and social dynamics. In comparison to other species, birds exemplify adaptability, resilience, and ingenuity, making them both captivating subjects of study and indispensable components of our planet's biodiversity.</p>
+{{endif}}
+
+
+{{ endblock }}

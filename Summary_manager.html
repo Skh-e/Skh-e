@@ -1,0 +1,16 @@
+{{ extends 'global/Page.html' }}
+{{ block title }}Task 1 Summary{{ endblock }}
+
+{{ block content }}
+
+{{if participant.role == 'manager'}}
+<p>One employee is randomly selected by the computer.</p>
+<p>The employee generated {{emp_payoff_1}} points.</p>
+<p>Thus, you will earn {{m}} points.</p>
+{{endif}}
+
+{{ formfields }}
+
+{{ next_button }}
+
+{{ endblock }}

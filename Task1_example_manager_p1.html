@@ -1,0 +1,26 @@
+{{ extends 'global/Page.html' }}
+{{ block title }}Task 1{{ endblock }}
+
+{{ block content }}
+
+<p>The first task is to “decode” numbers into letters using a decoding key shown on the computer screen. Each correctly decoded number generates <b> 100 output points for the firm</b>. The more {{if participant.role == 'employee'}} you decode {{else}}the employee decodes{{ endif }}, the higher the firm’s output will be. </p>
+
+<p>Below, you can see a sample decoding key. The decoding key assigns two-digit numbers to the 26 alphabetic characters in a random order. 
+{{if participant.role == 'employee'}} You {{else}} The employee {{ endif }} will be asked to decode a series of two-digit numbers using the decoding key given. Note that the decoding key will be different while performing the task.</p>
+
+<p><b>Example:</b></p>
+<img src= "https://imgur.com/YEzXGC6.jpg" width="800px" />
+
+<P>Decode this number: 42</P>
+<p> Based on the decoding key above, the correct answer below is <B>A</B>.  </p>
+{{ formfield 'answer' label="The employee will see the box like below to enter the letter." }}
+
+<p>After the employee has typed her/his answer into the answer box, she/he can click on the “Next” button to decode the next two-digit number. The decoding task will last for five minutes. The employee can continue decoding until the end of the period or choose to end the task earlier by by selecting “END TASK” and pressing "Next" at any point in time.  </p>
+
+<p>You will wait and read for five minutes. Once the time is over, you <b>will learn the output</b> that the employee has generated. </p>
+
+<p>The employee will be given 40 seconds to practice the task. This practice round does not generate any output points. It is solely for practice purposes. </p>
+
+{{ next_button }}
+
+{{ endblock }}

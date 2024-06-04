@@ -1,0 +1,41 @@
+{{ extends 'global/Page.html' }}
+{{ block title }}{{ endblock }}
+
+
+{{ block content }}
+<p><b>Comprehension Questions</b></p>
+{{ formfield 'how_many_output_points' label="1. Each correctly decoded number generates how many output points for the firm?" }}
+{{formfield_errors 'how_many_output_points'}}
+
+{{ formfield 'can_end_the_task_earlier' label="2. You have five minutes to perform the task but can end the task earlier." }}
+{{formfield_errors 'can_end_the_task_earlier'}}
+
+{{ formfield 'manager_informed_about_the_output' label="3. The manager will be informed about the output that you have generated after five minutes." }}
+{{formfield_errors 'manager_informed_about_the_output'}}
+
+{{ next_button label = 'End task.'}}
+
+<button type="button" id="showInstructionsButton">
+    Click here if you want to see the instructions again
+</button>
+
+<script>
+    document.getElementById('showInstructionsButton').addEventListener('click', function() {
+        // Perform actions when the button is clicked
+        // For example, you can display instructions again
+        // Replace 'instructionsDiv' with the ID of the element containing your instructions
+        document.getElementById('instructionsDiv').style.display = 'block';
+    });
+</script>
+
+<div id="instructionsDiv" style="display: none;">
+    <!-- Your instructions here -->
+    <br>
+    <p>The first task is to “decode” numbers into letters using a decoding key shown on the computer screen. Each correctly decoded number generates 100 output points for the firm. The more you decode, the higher the firm’s output will be.</p>
+    <p>The decoding task will last for 5 minutes. You can continue decoding until the end of the period or choose to end the task earlier by selecting “END TASK” and pressing "Next" at any point in time. </p>
+    <p>You will be given 40 seconds to practice the task. This practice round does not generate any output points. It is solely for practice purposes. </p>
+    <p>The manager will wait in the meantime and read texts for 6 minutes. Once the time is over, the manager will learn the output that you have generated in the decoding task.</p>
+</div>
+
+
+{{ endblock }}

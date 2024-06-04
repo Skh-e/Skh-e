@@ -1,0 +1,87 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+
+{% endblock %}
+
+{% block content %}
+{{if session.condition == 1 or session.condition == 2 or session.condition == 3 or session.condition == 4}}
+<p><b><u>Think about TASK 1(decoding numbers to letters)</u></b></p>
+  {{endif}}
+{{if session.condition == 5}}
+<p><b><u>Think about TASK 1</u></b></p>
+  {{endif}}
+Do you agree or disagree with the following statements regarding this task? <br><br>
+
+
+
+
+{{ form.Q1.label }}<br>
+<table style="table-layout: fixed; width: 100%;">
+    <tr>
+        <td><center>{{ form.Q1.0.label }}<br>{{ form.Q1.0}}</center></td>
+        <td><center><br>{{ form.Q1.1}}</center></td>
+        <td><center><br>{{ form.Q1.2}}</center></td>
+        <td><center><br>{{ form.Q1.3}}</center></td>
+        <td><center><br>{{ form.Q1.4}}</center></td>
+        <td><center><br>{{ form.Q1.5}}</center></td>
+        <td><center>{{ form.Q1.6.label }}<br>{{ form.Q1.6}}</center></td>
+    </tr>
+</table><br>
+
+{{ form.Q2.label }}<br>
+<table style="table-layout: fixed; width: 100%;">
+    <tr>
+        <td><center>{{ form.Q2.0.label }}<br>{{ form.Q2.0}}</center></td>
+        <td><center><br>{{ form.Q2.1}}</center></td>
+        <td><center><br>{{ form.Q2.2}}</center></td>
+        <td><center><br>{{ form.Q2.3}}</center></td>
+        <td><center><br>{{ form.Q2.4}}</center></td>
+        <td><center><br>{{ form.Q2.5}}</center></td>
+        <td><center>{{ form.Q2.6.label }}<br>{{ form.Q2.6}}</center></td>
+    </tr>
+</table><br>
+
+{{ form.Q3.label }}<br>
+<table style="table-layout: fixed; width: 100%;">
+    <tr>
+        <td><center>{{ form.Q3.0.label }}<br>{{ form.Q3.0}}</center></td>
+        <td><center><br>{{ form.Q3.1}}</center></td>
+        <td><center><br>{{ form.Q3.2}}</center></td>
+        <td><center><br>{{ form.Q3.3}}</center></td>
+        <td><center><br>{{ form.Q3.4}}</center></td>
+        <td><center><br>{{ form.Q3.5}}</center></td>
+        <td><center>{{ form.Q3.6.label }}<br>{{ form.Q3.6}}</center></td>
+    </tr>
+</table><br>
+
+{{ form.Q4.label }}<br>
+<table style="table-layout: fixed; width: 100%;">
+    <tr>
+        <td><center>{{ form.Q4.0.label }}<br>{{ form.Q4.0}}</center></td>
+        <td><center><br>{{ form.Q4.1}}</center></td>
+        <td><center><br>{{ form.Q4.2}}</center></td>
+        <td><center><br>{{ form.Q4.3}}</center></td>
+        <td><center><br>{{ form.Q4.4}}</center></td>
+        <td><center><br>{{ form.Q4.5}}</center></td>
+        <td><center>{{ form.Q4.6.label }}<br>{{ form.Q4.6}}</center></td>
+    </tr>
+</table><br>
+
+{{ form.Q5.label }}<br>
+<table style="table-layout: fixed; width: 100%;">
+    <tr>
+        <td><center>{{ form.Q5.0.label }}<br>{{ form.Q5.0}}</center></td>
+        <td><center><br>{{ form.Q5.1}}</center></td>
+        <td><center><br>{{ form.Q5.2}}</center></td>
+        <td><center><br>{{ form.Q5.3}}</center></td>
+        <td><center><br>{{ form.Q5.4}}</center></td>
+        <td><center><br>{{ form.Q5.5}}</center></td>
+        <td><center>{{ form.Q5.6.label }}<br>{{ form.Q5.6}}</center></td>
+    </tr>
+</table><br>
+
+{{ next_button }}
+
+{{ endblock }}

@@ -1,0 +1,20 @@
+{{ extends 'global/Page.html' }}
+{{ block title }}General information{{ endblock }}
+
+{{ block content }}
+
+<p>On the upcoming pages, you will be provided with the instructions. Please read them carefully. While reading the instructions, you will be asked a number of comprehension questions. This is to ensure that we have clearly communicated the instructions. You need to answer all comprehension questions correctly to proceed.</p>
+
+<p>You will be asked to perform some tasks. Then, you will be asked to fill out a short questionnaire regarding the study and provide some demographic information.</p>
+
+<p>You will be compensated for completing this study. You will receive a fixed participation fee of 2 EUR. You will receive an additional amount. This amount will depend on your decisions or others’ decisions. During the study, you will see these effects in points. At the end of the session, these points will be converted into euro at an exchange rate of <b> €0.5 (50 cents) per {{session.EXCHANGE_RATE}} points </b>. You will receive further information about this later.</p>
+
+
+<p>Your participation will take place entirely on the computer. If you are unclear about the instructions or the process during the study, please contact <u> Sabra.khajehnejad@kuleuven.be </u> and we will be happy to help you.</p>
+
+
+{{ formfields }}
+
+{{ next_button }}
+
+{{ endblock }}

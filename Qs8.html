@@ -1,0 +1,79 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+
+{% endblock %}
+
+{% block content %}
+In this section, we are interested in your opinion about the following statements in general. There are no wrong or right answers.</b><br><br>
+I believe that ............<br><br>
+
+{{ form.QC3.label }}<br>
+<table style="table-layout: fixed; width: 100%;">
+    <tr>
+        <td><center>{{ form.QC3.0.label }}<br>{{ form.QC3.0}}</center></td>
+        <td><center><br>{{ form.QC3.1}}</center></td>
+        <td><center><br>{{ form.QC3.2}}</center></td>
+        <td><center><br>{{ form.QC3.3}}</center></td>
+        <td><center><br>{{ form.QC3.4}}</center></td>
+        <td><center><br>{{ form.QC3.5}}</center></td>
+        <td><center>{{ form.QC3.6.label }}<br>{{ form.QC3.6}}</center></td>
+    </tr>
+</table><br>
+
+{{ form.QC4.label }}<br>
+<table style="table-layout: fixed; width: 100%;">
+    <tr>
+        <td><center>{{ form.QC4.0.label }}<br>{{ form.QC4.0}}</center></td>
+        <td><center><br>{{ form.QC4.1}}</center></td>
+        <td><center><br>{{ form.QC4.2}}</center></td>
+        <td><center><br>{{ form.QC4.3}}</center></td>
+        <td><center><br>{{ form.QC4.4}}</center></td>
+        <td><center><br>{{ form.QC4.5}}</center></td>
+        <td><center>{{ form.QC4.6.label }}<br>{{ form.QC4.6}}</center></td>
+    </tr>
+</table><br>
+
+{{ form.QC5.label }}<br>
+<table style="table-layout: fixed; width: 100%;">
+    <tr>
+        <td><center>{{ form.QC5.0.label }}<br>{{ form.QC5.0}}</center></td>
+        <td><center><br>{{ form.QC5.1}}</center></td>
+        <td><center><br>{{ form.QC5.2}}</center></td>
+        <td><center><br>{{ form.QC5.3}}</center></td>
+        <td><center><br>{{ form.QC5.4}}</center></td>
+        <td><center><br>{{ form.QC5.5}}</center></td>
+        <td><center>{{ form.QC5.6.label }}<br>{{ form.QC5.6}}</center></td>
+    </tr>
+</table><br>
+
+{{ form.QC6.label }}<br>
+<table style="table-layout: fixed; width: 100%;">
+    <tr>
+        <td><center>{{ form.QC6.0.label }}<br>{{ form.QC6.0}}</center></td>
+        <td><center><br>{{ form.QC6.1}}</center></td>
+        <td><center><br>{{ form.QC6.2}}</center></td>
+        <td><center><br>{{ form.QC6.3}}</center></td>
+        <td><center><br>{{ form.QC6.4}}</center></td>
+        <td><center><br>{{ form.QC6.5}}</center></td>
+        <td><center>{{ form.QC6.6.label }}<br>{{ form.QC6.6}}</center></td>
+    </tr>
+</table><br>
+
+{{ form.QC7.label }}<br>
+<table style="table-layout: fixed; width: 100%;">
+    <tr>
+        <td><center>{{ form.QC7.0.label }}<br>{{ form.QC7.0}}</center></td>
+        <td><center><br>{{ form.QC7.1}}</center></td>
+        <td><center><br>{{ form.QC7.2}}</center></td>
+        <td><center><br>{{ form.QC7.3}}</center></td>
+        <td><center><br>{{ form.QC7.4}}</center></td>
+        <td><center><br>{{ form.QC7.5}}</center></td>
+        <td><center>{{ form.QC7.6.label }}<br>{{ form.QC7.6}}</center></td>
+    </tr>
+</table><br>
+
+{{ next_button }}
+
+{{ endblock }}

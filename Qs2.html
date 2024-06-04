@@ -1,0 +1,73 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+
+{% endblock %}
+
+{% block content %}
+{{if session.condition == 1 or session.condition == 2 or session.condition == 3 or session.condition == 4}}
+<p><b><u>Think about TASK 1(decoding numbers to letters)</u> </b></p>
+  {{endif}}
+{{if session.condition == 5}}
+<p><b><u>Think about TASK 1</u></b></p>
+  {{endif}}
+
+    Having done this task, ........... <br><br>
+
+{{ form.Q6.label }}<br>
+<table style="table-layout: fixed; width: 100%;">
+    <tr>
+        <td><center>{{ form.Q6.0.label}}<br>{{ form.Q6.0}}</center></td>
+        <td><center><br>{{ form.Q6.1}}</center></td>
+        <td><center><br>{{ form.Q6.2}}</center></td>
+        <td><center><br>{{ form.Q6.3}}</center></td>
+        <td><center><br>{{ form.Q6.4}}</center></td>
+        <td><center><br>{{ form.Q6.5}}</center></td>
+        <td><center>{{ form.Q6.6.label }}<br>{{ form.Q6.6}}</center></td>
+    </tr>
+</table><br>
+
+{{ form.Q7.label }}<br>
+<table style="table-layout: fixed; width: 100%;">
+    <tr>
+        <td><center>{{ form.Q7.0.label }}<br>{{ form.Q7.0}}</center></td>
+        <td><center><br>{{ form.Q7.1}}</center></td>
+        <td><center><br>{{ form.Q7.2}}</center></td>
+        <td><center><br>{{ form.Q7.3}}</center></td>
+        <td><center><br>{{ form.Q7.4}}</center></td>
+        <td><center><br>{{ form.Q7.5}}</center></td>
+        <td><center>{{ form.Q7.6.label }}<br>{{ form.Q7.6}}</center></td>
+    </tr>
+</table><br>
+
+{{ form.Q8.label }}<br>
+<table style="table-layout: fixed; width: 100%;">
+    <tr>
+        <td><center>{{ form.Q8.0.label }}<br>{{ form.Q8.0}}</center></td>
+        <td><center><br>{{ form.Q8.1}}</center></td>
+        <td><center><br>{{ form.Q8.2}}</center></td>
+        <td><center><br>{{ form.Q8.3}}</center></td>
+        <td><center><br>{{ form.Q8.4}}</center></td>
+        <td><center><br>{{ form.Q8.5}}</center></td>
+        <td><center>{{ form.Q8.6.label }}<br>{{ form.Q8.6}}</center></td>
+    </tr>
+</table><br>
+
+{{ form.Q9.label }}<br>
+<table style="table-layout: fixed; width: 100%;">
+    <tr>
+        <td><center>{{ form.Q9.0.label }}<br>{{ form.Q9.0}}</center></td>
+        <td><center><br>{{ form.Q9.1}}</center></td>
+        <td><center><br>{{ form.Q9.2}}</center></td>
+        <td><center><br>{{ form.Q9.3}}</center></td>
+        <td><center><br>{{ form.Q9.4}}</center></td>
+        <td><center><br>{{ form.Q9.5}}</center></td>
+        <td><center>{{ form.Q9.6.label }}<br>{{ form.Q9.6}}</center></td>
+    </tr>
+</table><br>
+
+
+{{ next_button }}
+
+{{ endblock }}

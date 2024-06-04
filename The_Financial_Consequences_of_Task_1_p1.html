@@ -1,0 +1,69 @@
+{{ extends 'global/Page.html' }}
+{{ block title }}{{ endblock }}
+
+{{ block content }}
+
+<p><b>The Financial Consequences of Task 1</b></p>
+{{if participant.role == 'employee'}}
+
+    <p>As already explained, each number you correctly decode generates <b>{{session.DECODE_PAYOFF}} </b>output points for the firm. <b>10%</b> of this output will be given to the manager. </p>
+
+    {#(Conditions 1 and 2)#} 
+
+    {{if session.condition == 1 or session.condition == 2 }} 
+<p>In addition, by engaging in the task and generating output, you will help a charity. <b>20%</b> of your output will be donated to <b>Greenpeace</b>. Greenpeace is internationally committed to climate protection, biodiversity and peace with more than three million supporting members. In more than 50 countries, including Belgium, regional Greenpeace offices use non-violent actions to protect the natural foundations of life for people and nature and to ensure justice for all living beings.
+    Note that after this session, these funds will actually be transferred to the charity. Thus,<b> the more you decode, the more money you will donate to the charity.</b></p>
+    {{endif}}
+
+{#(Condition 4) #}
+{{if session.condition == 4}}
+<p>Note that your compensation is dependent on how many numbers you decode. <b>10%</b> of the output you generate will be given to you as a bonus. Thus, <b>the more you decode, the higher your own payoff will be.</b> </p>
+{{endif}}
+
+{#(Condition 2) #}
+{{if session.condition == 2}}
+<p>Note that your compensation is dependent on how many numbers you decode. <b>10%</b> of the output will be given to you as a bonus. Thus, <b>the more you decode, the higher your own payoff will be.</b> </p>
+{{endif}}
+
+{#(Condition 1) #}
+{{if session.condition == 1}}
+<p>Note that your compensation is not dependent on how many numbers you decode. Thus, <b>the output you generate will <i>not</i> affect your own payoff.</b></p>
+{{endif}}
+
+{#(Condition 3) #}
+{{if session.condition == 3}}
+<p>Note that your compensation is not dependent on how many numbers you decode. Thus, <b>the output you generate will <i>not</i> affect your own payoff.</b></p>
+{{endif}}
+
+
+{{endif}}
+
+
+{# ROLES CHANGE #}
+
+
+{{if participant.role == 'manager'}}
+
+<p>As already explained, each correctly decoded number generates <b>{{session.DECODE_PAYOFF}}</b> output points for the firm, <b>10% </b>of which will be given to you. </p>
+
+    {#(Conditions 1 and 2)#} 
+    {{if session.condition == 1 or session.condition == 2}} 
+    <p>By generating more outputs, the employee will help a charity. The firm donates <b>20% </b>of the output to Greenpeace. Greenpeace is internationally committed to climate protection, biodiversity and peace with more than three million supporting members. In more than 50 countries, regional Greenpeace offices use non-violent actions to protect the natural foundations of life for people and nature and to ensure justice for all living beings.
+Note that after this session, these funds will actually be transferred to the charity. Thus, <b>the more the employee decodes, the more money will be donated to the charity.</b></p>
+    {{endif}}
+
+
+    {{if session.condition == 4 or session.condition == 2}}
+<p> Note that the employee's compensation is dependent on how many numbers she/he decodes. The firm pays the employee 10% of the output he/she generates. Thus, <b>the more the employee decodes, the higher his/her own payoff will be. </b></p>
+    {{endif}}
+
+    {#(Conditions 1 and 3) #}
+    {{if session.condition == 1 or session.condition == 3}}
+<p>Note that the employee’s compensation is not dependent on how many numbers she/he decodes. Thus, <b>the output the employee generates does not affect her/his own payoff.</b></p>
+    {{endif}}
+{{endif}}
+
+
+{{ next_button }}
+
+{{ endblock }}

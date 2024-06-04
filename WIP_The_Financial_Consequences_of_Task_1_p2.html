@@ -1,0 +1,135 @@
+{{ extends 'global/Page.html' }}
+{{ block title }}{{ endblock }}
+
+{{ block content }}
+<p><b>Comprehension Questions</b></p>
+
+{{if participant.role == 'employee'}}
+<p>Are the following statements correct?</p>
+
+{#(Conditions 1&2)#}
+    {{if session.condition == 1 or session.condition == 2}}
+<p>The more output you generate, the more you donate to the charity, but your own payoff will not change.</p> {#true in condition 3#}
+    {{ formfield 'fin_cos_q1' label="" }}
+    {{formfield_errors 'fin_cos_q1'}}
+
+<p> The more output you generate, the more you donate to the charity, but your own payoff will also increase.</p> {#true in condition 4#}
+    {{ formfield 'fin_cos_q2' label="" }}
+    {{formfield_errors 'fin_cos_q2'}}
+
+    {{endif}}
+
+{#(Conditions 3&4)#}
+    {{if session.condition == 3 or session.condition == 4}}
+
+<p>Your own payoff does not change when you generate more outputs.</p> {#true in condition 3#}
+    {{ formfield 'fin_cos_q1' label="" }}
+    {{formfield_errors 'fin_cos_q1'}}
+
+<p> Your own payoff increases when you generate more outputs.</p> {#true in condition 4#}
+    {{ formfield 'fin_cos_q2' label="" }}
+    {{formfield_errors 'fin_cos_q2'}}
+
+    {{endif}}
+
+{{endif}}
+
+
+
+{{if participant.role == 'manager'}}
+
+{#(Conditions 1&2)#}
+    {{if session.condition == 1 or session.condition == 2}}
+
+<p>The more output the employee generates, the more the donation to the charity, but not the employee's payoff. </p>{#true in condition 1#}
+    {{ formfield 'fin_cos_q1' label=" " }}
+    {{formfield_errors 'fin_cos_q1'}}
+
+<p>The more output the employee generates, the more the donation to the charity, but also the employee's payoff. </p>{#true in condition 2#}
+    {{ formfield 'fin_cos_q2' label="" }}
+    {{formfield_errors 'fin_cos_q2'}}
+
+    {{endif}} 
+
+{#(Conditions 3&4)#}
+    {{if session.condition == 3 or session.condition ==  4 }} 
+
+<p>When the employee generates more output, the employee’s payoff does not change. </p>{#true in condition 3#}
+    {{ formfield 'fin_cos_q1' label=" Is it correct?" }}
+    {{formfield_errors 'fin_cos_q1'}}
+
+<p>When the employee generates more output, the employee’s payoff also increases. </p>{#true in condition 4#}
+    {{ formfield 'fin_cos_q2' label=" Is it correct?" }}
+    {{formfield_errors 'fin_cos_q2'}}
+
+    {{endif}} 
+{{endif}}
+
+
+{{ next_button }}
+
+<button type="button" id="showInstructionsButton">
+    Click here if you want to see the instructions again
+</button>
+
+<script>
+    document.getElementById('showInstructionsButton').addEventListener('click', function() {
+        // Perform actions when the button is clicked
+        // For example, you can display instructions again
+        // Replace 'instructionsDiv' with the ID of the element containing your instructions
+        document.getElementById('instructionsDiv').style.display = 'block';
+    });
+</script>
+
+<div id="instructionsDiv" style="display: none;">
+    <!-- Your instructions here -->
+
+    {{if participant.role == 'employee'}}
+    <br>
+       <p>As already explained, each number you correctly decode generates <b>{{session.DECODE_PAYOFF}} </b>output points for the firm. <b>10%</b> of this output will be given to the manager. </p>
+
+    {{if session.condition == 1}}
+    <p>In addition, by engaging in the task and generating output, you will help a charity. <b>20%</b> of your output will be donated to <b>Greenpeace</b>. Greenpeace is internationally committed to climate protection, biodiversity and peace with more than three million supporting members. In more than 50 countries, including Belgium, regional Greenpeace offices use non-violent actions to protect the natural foundations of life for people and nature and to ensure justice for all living beings.
+    Note that after this session, these funds will actually be transferred to the charity. Thus,<b> the more you decode, the more money you will donate to the charity.</b></p>
+   <p>Note that your compensation is not dependent on how many numbers you decode. Thus, <b>the output you generate will <i>not</i> affect your own payoff.</b></p>
+    {{endif}}
+    {{if session.condition == 2}}
+    <p>In addition, by engaging in the task and generating output, you will help a charity. <b>20%</b> of your output will be donated to <b>Greenpeace</b>. Greenpeace is internationally committed to climate protection, biodiversity and peace with more than three million supporting members. In more than 50 countries, including Belgium, regional Greenpeace offices use non-violent actions to protect the natural foundations of life for people and nature and to ensure justice for all living beings.
+    Note that after this session, these funds will actually be transferred to the charity. Thus,<b> the more you decode, the more money you will donate to the charity.</b></p>
+<p>Note that your compensation is dependent on how many numbers you decode. <b>10%</b> of the output will be given to you as a bonus. Thus, <b>the more you decode, the higher your own payoff will be.</b> </p>
+    {{endif}}
+    {{if session.condition == 3}}
+    <p>Note that your compensation is not dependent on how many numbers you decode. Thus, <b>the output you generate will <i>not</i> affect your own payoff.</b></p>
+{{endif}}
+    {{if session.condition == 4}}
+<p>Note that your compensation is dependent on how many numbers you decode. <b>10%</b> of the output you generate will be given to you as a bonus. Thus, <b>the more you decode, the higher your own payoff will be.</b> </p>
+{{endif}}
+       {{endif}}
+
+{{if participant.role == 'manager'}}
+<br>
+<p>As already explained, each correctly decoded number generates <b>{{session.DECODE_PAYOFF}}</b> output points for the firm, <b>10% </b>of which will be given to you. </p>
+
+    {#(Conditions 1 and 2)#}
+    {{if session.condition == 1 or session.condition == 2}}
+    <p>By generating more outputs, the employee will help a charity. The firm donates <b>20% </b>of the output to Greenpeace. Greenpeace is internationally committed to climate protection, biodiversity and peace with more than three million supporting members. In more than 50 countries, regional Greenpeace offices use non-violent actions to protect the natural foundations of life for people and nature and to ensure justice for all living beings.
+Note that after this session, these funds will actually be transferred to the charity. Thus, <b>the more the employee decodes , the more money will be donated to the charity.</b></p>
+    {{endif}}
+
+
+    {{if session.condition == 4 or session.condition == 2}}
+<p> Note that the employee's compensation is dependent on how many numbers she/he decodes. The firm pays the employee 10% of the output he/she generates. Thus, <b>the more the employee decodes, the higher his/her own payoff will be. </b></p>
+    {{endif}}
+
+    {#(Conditions 1 and 3) #}
+    {{if session.condition == 1 or session.condition == 3}}
+<p>Note that the employee’s compensation is not dependent on how many numbers she/he decodes. Thus, <b>the output the employee generates does not affect her/his own payoff.</b></p>
+    {{endif}}
+{{endif}}
+
+</div>
+
+
+
+
+{{ endblock }}

@@ -1,0 +1,19 @@
+{{ extends 'global/Page.html' }}
+{{ block title }} Task 2 summary {{ endblock }}
+
+{{ block content }}
+
+{{if player.role == 'manager'}}
+<p> You provided the funds that the employee requested. The employees realized the investment project.
+Your earnings are {{m}} points.</p>
+{{endif}}
+
+{{if player.role == 'employee'}}
+<p>The actual costs of the project were 920 points. You requested {{player.task_2_request}} points of funding from the manager. The manager provided the funds. 
+You realized the investment project.
+The investment project yielded a revenue of 2200 points. Thus, the manager’s earnings are {{this_player_manager_payoff}} points and your earnings are {{player_payoff}} points.</p>
+{{endif}}
+
+{{ next_button }}
+
+{{ endblock }}

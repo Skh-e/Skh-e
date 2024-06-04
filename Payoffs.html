@@ -1,0 +1,23 @@
+{{ extends 'global/Page.html' }}
+{{ block title }}Payoffs{{ endblock }}
+
+{{ block content }}
+
+{{if participant.role == 'employee'}}
+<p>At the end of the study, you and the manager will privately see a breakdown of the points earned throughout the whole study and how this translates to cash.</p> 
+
+<p>You will receive a <b>completion code</b> at the end of the study. Write down this code and make sure that you keep it. <b>You will need this code to receive your compensation.</b> You will receive a separate invitation via email to receive your compensation in cash in person.</p>
+{{endif}}
+
+
+{# ROLES CHANGE #}
+
+
+{{if participant.role == 'manager'}}
+<p>At the end of the study, you and the employee will privately see a breakdown of the points earned throughout the whole study and how this translates to cash.</p> 
+
+<p><b>You will receive a completion code at the end of the study. Write down this code and make sure that you keep it.</b> You will need this code to receive your compensation. You will receive a separate invitation via email to receive your compensation in person.</p>
+{{endif}}
+{{ next_button }}
+
+{{ endblock }}

@@ -1,0 +1,12 @@
+{{ extends 'global/Page.html' }}
+{{ block title }}{{ endblock }}
+
+{{ block content }}
+
+{{if participant.role == 'employee'}}
+Thank you for completing Task 1!
+<br><br>
+{{endif}}
+{{ next_button }}
+
+{{ endblock }}

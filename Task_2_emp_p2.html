@@ -1,0 +1,51 @@
+{{ extends 'global/Page.html' }}
+{{ block title }}Task 2{{ endblock }}
+
+{{ block content }}
+
+<p>The <b>actual costs</b> of the project are <b>920 points</b>. Recall that <b>the manager does not learn the actual costs</b> but only knows that the project costs can be any whole number between 1 and 2000 points, with all costs being equally likely.</p>
+
+<p>How much funding do you want to request from the manager?</p>
+    {{formfield 'task_2_request' label="I request "}}
+
+<br><br>
+
+{#(Condition 1 )#}
+{{if session.condition == 1}}
+<p>Recall that in the first task</p>
+<p>You have generated {{payoff}} output points for the firm.</p>
+<p>You have donated {{donation}} points to the charity.</p>
+
+{{endif}}
+
+{#(Condition  2)#}
+{{if session.condition == 2}}
+<p>Recall that in the first task</p>
+<p>You have generated {{payoff}} output points for the firm.</p>
+<p>You have donated {{donation}} points to the charity.</p>
+<p>You have earned {{bonus}} points for yourself.<p/>
+{{endif}}
+
+{#(Conditions 3)#}
+{{if session.condition == 3}}
+<p>Recall that in the first task</p>
+<p>You have generated {{payoff}} output points for the firm.</p>
+{{endif}}
+
+{#(Conditions 4)#}
+{{if session.condition == 4}}
+<p>Recall that in the first task</p>
+<p>You have generated {{payoff}} output points for the firm.</p>
+<p>You have earned {{bonus}} points for yourself.<p/>
+{{endif}}
+
+{#(Condition 5 )#}
+{{if session.condition == 5}}
+<p></p><br>
+{{endif}}
+
+
+
+{{ next_button }}
+
+{{ endblock }}

@@ -1,0 +1,66 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+
+{% endblock %}
+
+{% block content %}
+<p><b><u>Now think about TASK 2 (conducting the investment project)</u></b> <p>
+    Indicate your agreement or disagreement with the following statements.<br><br>
+
+{{ form.QB1.label }}<br>
+<table style="table-layout: fixed; width: 100%;">
+    <tr>
+        <td><center>{{ form.QB1.0.label }}<br>{{ form.QB1.0}}</center></td>
+        <td><center><br>{{ form.QB1.1}}</center></td>
+        <td><center><br>{{ form.QB1.2}}</center></td>
+        <td><center><br>{{ form.QB1.3}}</center></td>
+        <td><center><br>{{ form.QB1.4}}</center></td>
+        <td><center><br>{{ form.QB1.5}}</center></td>
+        <td><center>{{ form.QB1.6.label }}<br>{{ form.QB1.6}}</center></td>
+    </tr>
+</table><br>
+
+{{ form.QB2.label }}<br>
+<table style="table-layout: fixed; width: 100%;">
+    <tr>
+        <td><center>{{ form.QB2.0.label }}<br>{{ form.QB2.0}}</center></td>
+        <td><center><br>{{ form.QB2.1}}</center></td>
+        <td><center><br>{{ form.QB2.2}}</center></td>
+        <td><center><br>{{ form.QB2.3}}</center></td>
+        <td><center><br>{{ form.QB2.4}}</center></td>
+        <td><center><br>{{ form.QB2.5}}</center></td>
+        <td><center>{{ form.QB2.6.label }}<br>{{ form.QB2.6}}</center></td>
+    </tr>
+</table><br>
+
+{{ form.QB3.label }}<br>
+<table style="table-layout: fixed; width: 100%;">
+    <tr>
+        <td><center>{{ form.QB3.0.label }}<br>{{ form.QB3.0}}</center></td>
+        <td><center><br>{{ form.QB3.1}}</center></td>
+        <td><center><br>{{ form.QB3.2}}</center></td>
+        <td><center><br>{{ form.QB3.3}}</center></td>
+        <td><center><br>{{ form.QB3.4}}</center></td>
+        <td><center><br>{{ form.QB3.5}}</center></td>
+        <td><center>{{ form.QB3.6.label }}<br>{{ form.QB3.6}}</center></td>
+    </tr>
+</table><br>
+
+{{ form.QB4.label }}<br>
+<table style="table-layout: fixed; width: 100%;">
+    <tr>
+        <td><center>{{ form.QB4.0.label }}<br>{{ form.QB4.0}}</center></td>
+        <td><center><br>{{ form.QB4.1}}</center></td>
+        <td><center><br>{{ form.QB4.2}}</center></td>
+        <td><center><br>{{ form.QB4.3}}</center></td>
+        <td><center><br>{{ form.QB4.4}}</center></td>
+        <td><center><br>{{ form.QB4.5}}</center></td>
+        <td><center>{{ form.QB4.6.label }}<br>{{ form.QB4.6}}</center></td>
+    </tr>
+</table><br>
+
+{{ next_button }}
+
+{{ endblock }}

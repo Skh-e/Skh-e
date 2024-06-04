@@ -1,0 +1,24 @@
+{{ extends 'global/Page.html' }}
+{{ block title }}{{ endblock }}
+
+{{ block content }}
+
+{{if participant.role == 'employee'}}
+
+<p>Now, the practice round for you is about to start. This will take 40 seconds. Afterwards, the main round will start. The manager will read some texts in the meantime for 6 minutes.
+    Please proceed when ready.</p>
+{{endif}}
+
+
+{# ROLES CHANGE #}
+
+
+{{if participant.role == 'manager'}}
+<p>Now, the practice round for the employee is about to start. This will take 40 seconds. Afterwards, the main round will start. You will read an interesting text in the meantime. This will take 6 minutes.</p>
+    <p><b>Please proceed when ready.</b></p>
+
+{{endif}}
+
+{{ next_button }}
+
+{{ endblock }}

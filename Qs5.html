@@ -1,0 +1,65 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+
+{% endblock %}
+
+{% block content %}
+    How did you feel about the “firm” that you worked for, respectively how it handled money? <br><br>
+
+{{ form.QB5.label }}<br>
+<table style="table-layout: fixed; width: 100%;">
+    <tr>
+        <td><center>{{ form.QB5.0.label }}<br>{{ form.QB5.0}}</center></td>
+        <td><center><br>{{ form.QB5.1}}</center></td>
+        <td><center><br>{{ form.QB5.2}}</center></td>
+        <td><center><br>{{ form.QB5.3}}</center></td>
+        <td><center><br>{{ form.QB5.4}}</center></td>
+        <td><center><br>{{ form.QB5.5}}</center></td>
+        <td><center>{{ form.QB5.6.label }}<br>{{ form.QB5.6}}</center></td>
+    </tr>
+</table><br>
+
+{{ form.QB6.label }}<br>
+<table style="table-layout: fixed; width: 100%;">
+    <tr>
+        <td><center>{{ form.QB6.0.label }}<br>{{ form.QB6.0}}</center></td>
+        <td><center><br>{{ form.QB6.1}}</center></td>
+        <td><center><br>{{ form.QB6.2}}</center></td>
+        <td><center><br>{{ form.QB6.3}}</center></td>
+        <td><center><br>{{ form.QB6.4}}</center></td>
+        <td><center><br>{{ form.QB6.5}}</center></td>
+        <td><center>{{ form.QB6.6.label }}<br>{{ form.QB6.6}}</center></td>
+    </tr>
+</table><br>
+
+{{ form.QB7.label }}<br>
+<table style="table-layout: fixed; width: 100%;">
+    <tr>
+        <td><center>{{ form.QB7.0.label }}<br>{{ form.QB7.0}}</center></td>
+        <td><center><br>{{ form.QB7.1}}</center></td>
+        <td><center><br>{{ form.QB7.2}}</center></td>
+        <td><center><br>{{ form.QB7.3}}</center></td>
+        <td><center><br>{{ form.QB7.4}}</center></td>
+        <td><center><br>{{ form.QB7.5}}</center></td>
+        <td><center>{{ form.QB7.6.label }}<br>{{ form.QB7.6}}</center></td>
+    </tr>
+</table><br>
+
+{{ form.QB8.label }}<br>
+<table style="table-layout: fixed; width: 100%;">
+    <tr>
+        <td><center>{{ form.QB8.0.label }}<br>{{ form.QB8.0}}</center></td>
+        <td><center><br>{{ form.QB8.1}}</center></td>
+        <td><center><br>{{ form.QB8.2}}</center></td>
+        <td><center><br>{{ form.QB8.3}}</center></td>
+        <td><center><br>{{ form.QB8.4}}</center></td>
+        <td><center><br>{{ form.QB8.5}}</center></td>
+        <td><center>{{ form.QB8.6.label }}<br>{{ form.QB8.6}}</center></td>
+    </tr>
+</table><br>
+
+{{ next_button }}
+
+{{ endblock }}

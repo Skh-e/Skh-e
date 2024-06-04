@@ -1,0 +1,64 @@
+{{ extends 'global/Page.html' }}
+{{ block title }}{{ endblock }}
+
+{{ block content }}
+
+{{if player.round_number == 1}}
+{{if session.condition == 1 or session.condition == 2 or session.condition == 3 or session.condition == 4 }}
+<p>Ready to practice Task 1? </p>
+    <p>Press "Next" to start the practice round for 40 seconds.</p>
+{{endif}}
+{{else}}
+{{if session.condition == 1 or session.condition == 2 or session.condition == 3 or session.condition == 4 }}
+<p>Thank you for completing the practice round. </p>
+<p>Press "Next" to start TASK 1 for five minutes.</p>
+
+<p>Recall that:</p>
+
+<p>Each number that you decode will generate {{session.DECODE_PAYOFF}} output points for the firm.</p>
+
+{#(Conditions 1 & 2)#}
+{{if session.condition == 1 or session.condition == 2}}
+<p> You also contribute to the charity by your output. 20% of the output you generate will be donated to Greenpeace.</p>
+{{endif}}
+
+{#(Condition 2) #}
+{{if session.condition == 2}}
+<p>You will earn 10% of the output you generate as a bonus.</p>
+{{endif}}
+
+{#(Condition 4) #}
+{{if session.condition == 4}}
+<p>You will earn 10% of the output you generate as a bonus.</p>
+{{endif}}
+
+{#(Condition 1) #}
+{{if session.condition == 1}}
+<p><b>Thus, the more points you generate, the higher your donation to the charity but not your own earnings.</b></p>
+{{endif}}
+
+{#(Condition 2) #}
+{{if session.condition == 2}}
+<p><b>Thus, the more points you generate, the higher your donation to the charity but also your own earnings.</b></p>
+{{endif}}
+
+{#(Condition 3) #}
+{{if session.condition == 3}}
+<p><b>The points you generate will not affect your own earnings.</b></p>
+{{endif}}
+
+{#(Condition 4) #}
+{{if session.condition == 4}}
+<p><b>Thus, the more points you generate, the higher your own earnings.</b></p>
+{{endif}}
+
+{{ endif }}
+{{endif}}
+{{if session.condition == 5}}
+<p><b>Ready to start?</b></p>
+
+{{endif}}
+
+{{ next_button}}
+
+{{ endblock }}

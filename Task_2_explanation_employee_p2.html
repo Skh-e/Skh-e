@@ -1,0 +1,39 @@
+{{ extends 'global/Page.html' }}
+{{ block title }}{{ endblock }}
+
+{{ block content }}
+<p><b>Comprehension Questions</b></p>
+{{ formfield 'manager_informed_about_actual_costs' label="1. The manager will be informed about the actual costs of the project." }}
+{{formfield_errors 'manager_informed_about_actual_costs'}}
+
+{{ formfield 'the_firm_will_always_pay' label="2. The firm will always pay the manager 2,200 points minus the funds you request for the investment project." }}
+{{formfield_errors 'the_firm_will_always_pay'}}
+
+{{ formfield 'requested_funds_are_higher' label="3. When your requested funds are higher than the actual costs, you will additionally earn this difference." }}
+{{formfield_errors 'requested_funds_are_higher'}}
+
+{{ next_button }}
+
+<button type="button" id="showInstructionsButton">
+    Click here if you want to see the instructions again
+</button>
+
+<script>
+    document.getElementById('showInstructionsButton').addEventListener('click', function() {
+        // Perform actions when the button is clicked
+        // For example, you can display instructions again
+        // Replace 'instructionsDiv' with the ID of the element containing your instructions
+        document.getElementById('instructionsDiv').style.display = 'block';
+    });
+</script>
+
+<div id="instructionsDiv" style="display: none;">
+    <!-- Your instructions here -->
+    <br>
+<p>The second task is to conduct an <b>investment project</b> for the firm. The project yields a<b> revenue of 2200 points </b>for the firm when it is realized. The project is always beneficial for the firm, but it is unclear how beneficial it is because it entails costs.
+    Only you learn the<b> actual costs</b>. The manager does <b>not</b> learn the actual costs. The manager only knows that the project costs can be any whole number between 1 and 2000 points, with all costs being equally likely. You need to ask the manager for funding in order to realize the project.
+    Specifically, you can request any number between the actual costs and 2000 points and the manager will have to approve your request. Next, the project will be realized and the firm will earn <b>the revenue minus the funds </b>requested by you and pay that amount to the manager. <b>If the requested funds are higher than the actual costs, you will keep the difference for yourself. The manager will never learn this difference.</b></p>
+</div>
+
+
+{{ endblock }}

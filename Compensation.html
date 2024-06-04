@@ -1,0 +1,36 @@
+{{ extends 'global/Page.html' }}
+{{ block title }}{{ endblock }}
+
+{{ block content }}
+<p><b>Thank you for your participation!</b></p>
+    <p>Your completion code is {{code}}. Please write down this code. You will need it to receive your payment. You will receive a separate invitation to receive your compensation in cash.</p>
+
+<p>You have completed today’s session. Below is a summary of the points you earned:</p>
+
+{{if participant.role == 'employee'}}
+    <p>400 points to work as an employee.</p>
+    <p> €2 show-up fee</p>
+    <p>{{participant.TASK_1_PAYOFF}} points for Task 1 </p>
+    <p>{{participant.TASK_2_PAYOFF}} points for Task 2  </p>
+
+    <p>Based on the conversation rate of €0.50 for every {{session.EXCHANGE_RATE}} points earned, and including the €2 show-up fee, you will receive €{{final_payoff}} for participating in this study.</p>
+
+    <p>To finish this study and be considered for payout, please click "Finish" at the bottom of this page.</p>
+{{endif}}
+
+
+
+{{if player.role == 'manager'}}
+    <p>400 points to work as a manager </p>
+    <p> €2 show-up fee</p>
+    <p>{{participant.TASK_1_PAYOFF}} points (from Task 1) </p>
+    <p>{{participant.TASK_2_PAYOFF}} points (from Task 2)  </p>
+
+    <p>Based on the conversation rate of €0.50 for every {{session.EXCHANGE_RATE}} points earned, and including the €2 show-up fee, the final payment will receive for participating in this study is €{{final_payoff}}.</p>
+
+   <p> To fully complete this study and be considered for payout, please click Finish at the bottom of this page.</p>
+{{endif}}
+
+<button name="Finish" value="True">Finish.</button>
+
+{{ endblock }}

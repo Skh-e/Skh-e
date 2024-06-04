@@ -1,0 +1,67 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+
+{% endblock %}
+
+{% block content %}
+<p><b><u>Think about TASK 1(decoding numbers to letters)</u></b></p>
+
+    What guided your choice on the level of effort you put into the task? <br><br>
+
+{{ form.Q10.label }}<br>
+<table style="table-layout: fixed; width: 100%;">
+    <tr>
+        <td><center>{{ form.Q10.0.label }}<br>{{ form.Q10.0}}</center></td>
+        <td><center><br>{{ form.Q10.1}}</center></td>
+        <td><center><br>{{ form.Q10.2}}</center></td>
+        <td><center><br>{{ form.Q10.3}}</center></td>
+        <td><center><br>{{ form.Q10.4}}</center></td>
+        <td><center><br>{{ form.Q10.5}}</center></td>
+        <td><center>{{ form.Q10.6.label }}<br>{{ form.Q10.6}}</center></td>
+    </tr>
+</table><br>
+
+{{ form.Q11.label }}<br>
+<table style="table-layout: fixed; width: 100%;">
+    <tr>
+        <td><center>{{ form.Q11.0.label }}<br>{{ form.Q11.0}}</center></td>
+        <td><center><br>{{ form.Q11.1}}</center></td>
+        <td><center><br>{{ form.Q11.2}}</center></td>
+        <td><center><br>{{ form.Q11.3}}</center></td>
+        <td><center><br>{{ form.Q11.4}}</center></td>
+        <td><center><br>{{ form.Q11.5}}</center></td>
+        <td><center>{{ form.Q11.6.label }}<br>{{ form.Q11.6}}</center></td>
+    </tr>
+</table><br>
+
+{{ form.Q12.label }}<br>
+<table style="table-layout: fixed; width: 100%;">
+    <tr>
+        <td><center>{{ form.Q12.0.label }}<br>{{ form.Q12.0}}</center></td>
+        <td><center><br>{{ form.Q12.1}}</center></td>
+        <td><center><br>{{ form.Q12.2}}</center></td>
+        <td><center><br>{{ form.Q12.3}}</center></td>
+        <td><center><br>{{ form.Q12.4}}</center></td>
+        <td><center><br>{{ form.Q12.5}}</center></td>
+        <td><center>{{ form.Q12.6.label }}<br>{{ form.Q12.6}}</center></td>
+    </tr>
+</table><br>
+
+{{ form.Q13.label }}<br>
+<table style="table-layout: fixed; width: 100%;">
+    <tr>
+        <td><center>{{ form.Q13.0.label }}<br>{{ form.Q13.0}}</center></td>
+        <td><center><br>{{ form.Q13.1}}</center></td>
+        <td><center><br>{{ form.Q13.2}}</center></td>
+        <td><center><br>{{ form.Q13.3}}</center></td>
+        <td><center><br>{{ form.Q13.4}}</center></td>
+        <td><center><br>{{ form.Q13.5}}</center></td>
+        <td><center>{{ form.Q13.6.label }}<br>{{ form.Q13.6}}</center></td>
+    </tr>
+</table><br>
+
+{{ next_button }}
+{{ endblock }}
+

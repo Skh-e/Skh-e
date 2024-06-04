@@ -1,0 +1,53 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+
+{% endblock %}
+
+{% block content %}
+In this section, we are interested in your opinion about the following statements in general. There are no wrong or right answers.<br><br>
+
+{{ form.QC1.label }}<br>
+<table style="table-layout: fixed; width: 100%;">
+    <tr>
+        <td><center>{{ form.QC1.0.label }}<br>{{ form.QC1.0}}</center></td>
+        <td><center><br>{{ form.QC1.1}}</center></td>
+        <td><center><br>{{ form.QC1.2}}</center></td>
+        <td><center><br>{{ form.QC1.3}}</center></td>
+        <td><center><br>{{ form.QC1.4}}</center></td>
+        <td><center><br>{{ form.QC1.5}}</center></td>
+        <td><center>{{ form.QC1.6.label }}<br>{{ form.QC1.6}}</center></td>
+    </tr>
+</table><br>
+
+{{ form.QC2.label }}<br>
+<table style="table-layout: fixed; width: 100%;">
+    <tr>
+        <td><center>{{ form.QC2.0.label }}<br>{{ form.QC2.0}}</center></td>
+        <td><center><br>{{ form.QC2.1}}</center></td>
+        <td><center><br>{{ form.QC2.2}}</center></td>
+        <td><center><br>{{ form.QC2.3}}</center></td>
+        <td><center><br>{{ form.QC2.4}}</center></td>
+        <td><center><br>{{ form.QC2.5}}</center></td>
+        <td><center>{{ form.QC2.6.label }}<br>{{ form.QC2.6}}</center></td>
+    </tr>
+</table><br>
+
+{{ form.QC2S.label }}<br>
+<table style="table-layout: fixed; width: 100%;">
+    <tr>
+        <td><center>{{ form.QC2S.0.label }}<br>{{ form.QC2S.0}}</center></td>
+        <td><center><br>{{ form.QC2S.1}}</center></td>
+        <td><center><br>{{ form.QC2S.2}}</center></td>
+        <td><center><br>{{ form.QC2S.3}}</center></td>
+        <td><center><br>{{ form.QC2S.4}}</center></td>
+        <td><center><br>{{ form.QC2S.5}}</center></td>
+        <td><center>{{ form.QC2S.6.label }}<br>{{ form.QC2S.6}}</center></td>
+    </tr>
+</table><br>
+
+
+{{ next_button }}
+
+{{ endblock }}

@@ -1,0 +1,29 @@
+{{ extends 'global/Page.html' }}
+{{ block title }}{{ endblock }}
+
+{{ block content }}
+
+<p><b>Thank you for participating in this study!</b> </p>
+
+<p>You have been invited to participate in a study on decision-making. The study will be in English. It will take about 20-25 minutes to complete. You will receive background information and be asked to perform some tasks. </p>
+
+<p>There are no risks to participate in this study beyond those you face in the normal course of life.</p>
+
+<p>You will receive a participation fee consisting of 2€ fix payment plus additional compensation, about which you will receive further information later.</p>
+
+<p>The results of this research can be used for scientific purposes and may be published. We will not ask you to provide your name. We treat the data completely anonymously and confidentially. Therefore, we cannot identify you, nor can we track or remove the data that you provide. The results, if presented, will be presented in the summary form only.</p>
+
+<p>For the further processing of the collected data, the public interest is the legal basis according to the AVG / GDPR. Termination of participation in the study therefore means that the previously collected data can still be legally included in the study and do not need to be deleted by KU Leuven.</p>
+
+<p>Your participation is completely voluntary. You have the right to stop your participation at any time. You do not have to give a reason for this and this will not have any adverse consequences for you.</p>
+
+<p>For questions about the study you can contact <u>sabra.khajehnejad@kuleuven.be</u>. More information with regard to privacy in research can be found at <u>https://kuleuven.be/privacy/en/</u>. With further questions about privacy issues you can contact the data protection officer: dpo@kuleuven.be</p>
+
+<p>We assure you to carry out this study as described in the instructions without deceiving you in any way. This study has been reviewed and approved by the Social and Societal Ethics Committee (SMEC) of KU Leuven, G-2023-7061-R2(MIN). In case of complaints or other concerns with regard to the ethical aspects of this research, you can contact SMEC: <u>smec@kuleuven.be</u></p>
+
+{{ formfield 'consent'}}
+{{ formfield_errors 'consent'}}
+
+{{ next_button }}
+
+{{ endblock }}

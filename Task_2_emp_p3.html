@@ -1,0 +1,14 @@
+{{ extends 'global/Page.html' }}
+{{ block title }}Task 2{{ endblock }}
+
+{{ block content }}
+
+<p>The actual costs of the project are <b>920</b> points. You indicated that you want to request <b>{{player.task_2_request}}</b> points of funding from the manager. </p>
+
+<p>This will lead to earnings of <b>{{m}} </b>points for the manager and earnings of <b>{{e}}</b> points for you. The manager will never learn about your earnings. </p>
+
+<p>Do not change the number in the form if you want to proceed or adapt your final request.</p>
+{{formfield 'task_2_request' label='My final request is '}}
+{{ next_button }}
+
+{{ endblock }}

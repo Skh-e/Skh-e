@@ -1,0 +1,41 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+
+{% endblock %}
+
+{% block content %}
+    Please now assess the overall experience of the work you just engaged in.<br><br>
+
+{{ form.QB9.label }}<br>
+<table style="table-layout: fixed; width: 100%;">
+    <tr>
+        <td><center>{{ form.QB9.0.label }}<br>{{ form.QB9.0}}</center></td>
+        <td><center><br>{{ form.QB9.1}}</center></td>
+        <td><center><br>{{ form.QB9.2}}</center></td>
+        <td><center><br>{{ form.QB9.3}}</center></td>
+        <td><center><br>{{ form.QB9.4}}</center></td>
+        <td><center><br>{{ form.QB9.5}}</center></td>
+        <td><center>{{ form.QB9.6.label }}<br>{{ form.QB9.6}}</center></td>
+    </tr>
+</table><br>
+
+{{ form.QB10.label }}<br>
+<table style="table-layout: fixed; width: 100%;">
+    <tr>
+        <td><center>{{ form.QB10.0.label }}<br>{{ form.QB10.0}}</center></td>
+        <td><center><br>{{ form.QB10.1}}</center></td>
+        <td><center><br>{{ form.QB10.2}}</center></td>
+        <td><center><br>{{ form.QB10.3}}</center></td>
+        <td><center><br>{{ form.QB10.4}}</center></td>
+        <td><center><br>{{ form.QB10.5}}</center></td>
+        <td><center>{{ form.QB10.6.label }}<br>{{ form.QB10.6}}</center></td>
+    </tr>
+</table><br>
+
+
+
+{{ next_button }}
+
+{{ endblock }}
